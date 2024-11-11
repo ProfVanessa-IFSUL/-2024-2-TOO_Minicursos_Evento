@@ -12,15 +12,15 @@ import modelo.Pessoa;
  */
 public class TestePessoa {
     public static void main(String[] args) {
-        Pessoa p = new Pessoa("Joana");
-        p.setPeso(60);
-//        p.setAltura(1.65);
-        
-        System.out.println(p.getInformacoes());
-        
-        Pessoa p2 = new Pessoa("Joao", 75, 1.75);
+//        Pessoa p = new Pessoa("Joana");
+//        p.setPeso(60);
+////        p.setAltura(1.65);
+//        
+//        System.out.println(p.getInformacoes());
+//        
+//        Pessoa p2 = new Pessoa("Joao", 75, 1.75);
 //        System.out.println("Pessoa Cadastrada: "+p2.getNome()+
 //                " peso: "+p2.getPeso()+", altura: "+p2.getAltura());
-        System.out.println(p2.getInformacoes());
+//        System.out.println(p2.getInformacoes());
     }
 }

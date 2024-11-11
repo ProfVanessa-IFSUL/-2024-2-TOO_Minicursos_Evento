@@ -5,6 +5,7 @@
 package modelo;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,12 +18,16 @@ public class Oficina {
     private int CH;
     private Date dataInicio;
     private int vagas;
-    private Pessoa ministrante;
+    private Ministrante ministrante;
+    private Organizador organizador;
+    private ArrayList<Participante> listaParticipantes;
+    
     
     private Local local;
     
     public Oficina(String nome){
         this.nome = nome;
+        listaParticipantes = new ArrayList<>();
     }
     
     // getter
@@ -42,15 +47,23 @@ public class Oficina {
         return vagas;
     }
     
-    public Pessoa getMinistrante(){
+    public Ministrante getMinistrante(){
         return ministrante;
     }
-    public void setMinistrante(Pessoa m){
+    public void setMinistrante(Ministrante m){
         this.ministrante = m;
     }
     
     public Local getLocal(){
         return this.local;
+    }
+    
+    public Organizador getOrganizador(){
+        return organizador;
+    }
+    
+    public ArrayList<Participante> getListaParticipante(){
+        return listaParticipantes;
     }
     
     
@@ -75,6 +88,28 @@ public class Oficina {
         this.local = local;
     }
     
+    public void setOrganizador(Organizador or){
+        organizador = or;
+    }
+    
+    // métodos de manipulação do ArrayList
+    
+    public void addPartipante(Participante participante){
+        listaParticipantes.add(participante);
+    }
+    
+    public void removerPartipante(Participante participante){
+        listaParticipantes.remove(participante);
+    }
+    
+    public String mostrarListaParticipantes(){
+        String aux = "Lista de Participantes: ";
+        for(Participante p: listaParticipantes){
+            aux += "\n"+p;
+        }
+        return aux;
+    }
+    
     
     public String getInformacoes(){
         SimpleDateFormat mascaraData = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -90,6 +125,15 @@ public class Oficina {
        aux += ministrante !=null ? "\nMinistrante: "+ministrante.getNome(): "";
        //aux += local != null ? "\nLocal: "+local +" - lotação: "+local.getLotacao(): "";
        aux += local != null ? "\nLocal: "+local : "";
+       
+       aux += organizador != null ? "\nOrganizador: "+organizador : "";
+       
+       if(!listaParticipantes.isEmpty()){
+           aux+= "\n\n"+mostrarListaParticipantes();
+       } else{
+           aux += "\n Não há participantes inscritos";
+       }
+       
         return aux;
     }
     

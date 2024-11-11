@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  *
  * @author vanessalagomachado
  */
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
     private double peso;
     private double altura;
