@@ -12,5 +12,6 @@ public interface AgenteExterno {
     
     public String gerarPagamento();
     public double calcularHonorarios();
+    public double calcularHonorarios(double valorHora);
     
 }
