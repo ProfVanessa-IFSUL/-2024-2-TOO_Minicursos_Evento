@@ -5,6 +5,7 @@
 package teste;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -26,5 +27,7 @@ public class TesteArrayList {
         lista.remove("Vanessa");
         
         System.out.println("Lista 2: "+lista);
+        
+        
     }
 }

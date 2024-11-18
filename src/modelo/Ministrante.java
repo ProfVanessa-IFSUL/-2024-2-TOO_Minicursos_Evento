@@ -8,8 +8,10 @@ package modelo;
  *
  * @author vanessalagomachado
  */
-public class Ministrante extends Pessoa{
+public class Ministrante extends Pessoa implements AgenteExterno{
     private String formacao;
+    private Oficina oficina;
+    
     
     public Ministrante(String n) {
         super(n);
@@ -32,5 +34,36 @@ public class Ministrante extends Pessoa{
     }
     
     
+
+    @Override
+    public String gerarCertificado() {
+        return "Certificado de Ministrante da Oficina "+oficina.getNome()+" com CH "+oficina.getCH();
+    }
+
+    public Oficina getOficina() {
+        return oficina;
+    }
+
+    public void setOficina(Oficina oficina) {
+        this.oficina = oficina;
+    }
+    
+    public String toString(){
+        return super.toString()+ " Ministrante em: "+oficina.getNome();
+    }
+
+    @Override
+    public String gerarPagamento() {
+        return "Pagamento de R$"+calcularHonorarios()+" realizado com sucesso";
+    }
+
+    @Override
+    public double calcularHonorarios() {
+        return 50 * oficina.getCH();
+    }
+    
+    public double calcularHonorarios(double valorHora){
+        return valorHora * oficina.getCH();
+    }
     
 }

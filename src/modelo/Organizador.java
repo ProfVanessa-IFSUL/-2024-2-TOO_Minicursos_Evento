@@ -10,8 +10,30 @@ package modelo;
  */
 public class Organizador extends Pessoa{
     
+    private Oficina oficina;
+    
     public Organizador(String n) {
         super(n);
     }
+
+    @Override
+    public String gerarCertificado() {
+        return "Certificado de Organizador da Oficina "+oficina.getNome();
+    }
+
+    public Oficina getOficina() {
+        return oficina;
+    }
+
+    public void setOficina(Oficina oficina) {
+        this.oficina = oficina;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "(ORGANIZADOR)";
+    }
+    
+    
     
 }
